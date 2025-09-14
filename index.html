@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía Interactiva: Lesiones Cutáneas por VMNI</title>
+    <title>Guía Interactiva: Lesiones Cutáneas por VNI</title>
     
     <!-- Tailwind CSS a través de CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,7 +16,7 @@
                     colors: {
                         'vni-red': '#be1520',
                         'vni-blue': '#074d73',
-                        'vni-yellow': '#facc15', 
+                        'vni-yellow': '#facc15', // Un amarillo vibrante para destacar
                     }
                 }
             }
@@ -74,28 +74,47 @@
         html {
             scroll-behavior: smooth;
         }
+        /* Asegura que el anclaje del menú no quede oculto por la cabecera fija */
+        [id] {
+            scroll-margin-top: 150px; /* Ajusta este valor a la altura de tu cabecera + un margen */
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
 
     <!-- Encabezado Fijo -->
-    <header class="bg-vni-blue text-white p-6 shadow-lg sticky top-0 z-20">
-        <div class="container mx-auto max-w-5xl flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
-            <img src="https://www.urgenciasyemergen.com/wp-content/uploads/2018/08/cropped-LOGO-ORIGINAL-R-192x192.jpg" alt="Logo Urgencias y Emergencias" class="h-24 w-24 border-2 border-white flex-shrink-0" style="border-radius: 10%;">
-            <div class="text-center md:text-left">
-                <h1 class="text-xl md:text-2xl font-bold leading-tight">Prevención y tratamiento de las lesiones cutáneas asociadas a la ventilación mecánica no invasiva</h1>
-                <p class="text-xs mt-2 opacity-90">Contenido basado en: Raurell-Torredà, M., Romero-Collado, A., Rodríguez-Palma, M., Farrés-Tarafa, M., Martí, J. D., Hurtado-Pardos, B., Peñarrubia-San Florencio, L., Saez-Paredes, P., & Esquinas, A. M. (2017). Prevención y tratamiento de las lesiones cutáneas asociadas a la ventilación mecánica no invasiva. Recomendaciones de expertos. Enfermeria Intensiva, 28(1), 31–41. https://doi.org/10.1016/j.enfi.2016.12.001</p>
-                <p class="text-sm mt-3 font-semibold">Autora: Elena Plaza Moreno - Urgencias y Emergencias® - www.urgenciasyemergen.com</p>
+    <header id="main-header" class="bg-vni-blue text-white p-4 shadow-lg sticky top-0 z-20 transition-transform duration-300 ease-in-out">
+        <div class="container mx-auto max-w-5xl">
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+                <img src="https://www.urgenciasyemergen.com/wp-content/uploads/2018/08/cropped-LOGO-ORIGINAL-R-192x192.jpg" alt="Logo Urgencias y Emergencias" class="h-24 w-24 border-2 border-white flex-shrink-0" style="border-radius: 10%;">
+                <div class="text-center md:text-left">
+                    <h1 class="text-xl md:text-2xl font-bold leading-tight">Prevención y tratamiento de las lesiones cutáneas asociadas a la ventilación mecánica no invasiva</h1>
+                    <p class="text-xs mt-2 opacity-90">Contenido basado en: Raurell-Torredà, M., et al. (2017). Prevención y tratamiento de las lesiones cutáneas asociadas a la ventilación mecánica no invasiva. Recomendaciones de expertos. Enfermeria Intensiva, 28(1), 31–41.</p>
+                    <p class="text-sm mt-3 font-semibold">Autora: Elena Plaza Moreno - Urgencias y Emergencias®</p>
+                </div>
             </div>
+            <!-- Menú de Navegación -->
+            <nav class="w-full mt-4 border-t border-white/20 pt-3">
+                <ul class="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-sm">
+                    <li><a href="#resumen" class="hover:underline font-semibold">Resumen</a></li>
+                    <li><a href="#introduccion" class="hover:underline">Introducción</a></li>
+                    <li><a href="#epidemiologia" class="hover:underline">Epidemiología</a></li>
+                    <li><a href="#riesgos" class="hover:underline">Factores de Riesgo</a></li>
+                    <li><a href="#prevencion" class="hover:underline">Prevención</a></li>
+                    <li><a href="#tratamiento" class="hover:underline">Tratamiento</a></li>
+                    <li><a href="#conclusiones" class="hover:underline">Conclusiones</a></li>
+                    <li><a href="#repaso" class="hover:underline font-semibold">Repaso</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main class="container mx-auto max-w-5xl p-4 md:p-8">
 
         <!-- 1. Resumen Ejecutivo -->
-        <div class="mb-8 bg-white rounded-lg shadow-md p-6 border-l-8 border-vni-red">
+        <div id="resumen" class="mb-8 bg-white rounded-lg shadow-md p-6 border-l-8 border-vni-red">
             <h2 class="text-2xl font-bold text-vni-blue mb-3">1. Resumen ejecutivo</h2>
-            <p class="mb-4">La Ventilación Mecánica No Invasiva (VMNI) es una técnica esencial para la insuficiencia respiratoria, pero su uso frecuente provoca lesiones cutáneas (LESADIC), cuya incidencia puede dispararse al <strong>100% tras 48 horas</strong> de uso continuo. Estas lesiones afectan negativamente la calidad de vida y el éxito de la terapia.</p>
+            <p class="mb-4">La Ventilación Mecánica No Invasiva (VNI) es una técnica esencial para la insuficiencia respiratoria, pero su uso frecuente provoca Lesiones Cutáneas (LESADIC), cuya incidencia puede dispararse al <strong>100% tras 48 horas</strong> de uso continuo. Estas lesiones afectan negativamente la calidad de vida y el éxito de la terapia.</p>
             <p>Este documento resume el consenso de expertos sobre factores de riesgo, estrategias preventivas y tratamientos, destacando la importancia de una correcta selección de la interfaz, la protección de la piel y una monitorización constante.</p>
         </div>
 
@@ -103,14 +122,14 @@
         <div class="space-y-4">
 
             <!-- 2. Introducción y Justificación -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div id="introduccion" class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
                     <span>2. Introducción y justificación</span>
                     <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
                 <div class="accordion-content">
                     <div class="p-5 border-t text-gray-700">
-                        <p class="mb-4">El uso de la VMNI se ha triplicado en las últimas dos décadas. A pesar de sus beneficios, las LESADIC son un desafío persistente, siendo lesiones que replican la forma del dispositivo que las causa.</p>
+                        <p class="mb-4">El uso de la VNI se ha triplicado en las últimas dos décadas. A pesar de sus beneficios, las LESADIC son un desafío persistente, siendo lesiones que replican la forma del dispositivo que las causa.</p>
                         <div class="grid md:grid-cols-2 gap-4 mt-4 text-center">
                             <div class="bg-blue-50 p-4 rounded-lg border border-vni-blue">
                                 <h4 class="font-bold text-vni-blue">En adultos</h4>
@@ -121,13 +140,13 @@
                                 <p>La prevalencia de UPP por dispositivos respiratorios es del <strong>60.1%</strong>, con el 78.8% vinculadas a la CPAP.</p>
                             </div>
                         </div>
-                        <p class="mt-4">Un manejo adecuado de la interfaz es fundamental: una sujeción floja aumenta las fugas, mientras que una demasiado apretada incrementa el riesgo de lesiones. El objetivo de este documento es sintetizar la evidencia científica para ofrecer recomendaciones claras que permitan reducir la incidencia de estas lesiones y consensuar su tratamiento.</p>
+                        <p class="mt-4">Un manejo adecuado de la interfaz es crucial: una sujeción floja aumenta las fugas, mientras que una demasiado apretada incrementa el riesgo de lesiones. El objetivo de este documento es sintetizar la evidencia científica para ofrecer recomendaciones claras que permitan reducir la incidencia de estas lesiones y consensuar su tratamiento.</p>
                     </div>
                 </div>
             </div>
 
             <!-- 3. Epidemiología y Fisiopatogenia -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div id="epidemiologia" class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
                     <span>3. Epidemiología y fisiopatogenia</span>
                     <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -149,17 +168,17 @@
                         </div>
                         <h4 class="font-bold text-lg mt-6 mb-2 text-vni-blue">Datos clave:</h4>
                         <ul class="space-y-3">
-                            <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Incidencia:</strong> varía del 2% al 50%, pero se dispara al <strong>100% pasadas 48h de VNI</strong>.</div></li>
-                            <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Detección Tardía:</strong> el <strong>74%</strong> se detectan en estadios avanzados (III o IV), en contraste con el 54% de las UPP comunes.</div></li>
+                            <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Incidencia:</strong> Varía del 2% al 50%, pero se dispara al <strong>100% pasadas 48h de VNI</strong>.</div></li>
+                            <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Detección Tardía:</strong> El <strong>74%</strong> se detectan en estadios avanzados (III o IV), en contraste con el 54% de las UPP comunes.</div></li>
                             <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Localización:</strong> 70% en cuello, barbilla, occipital o nariz. Las más graves (II o III) se concentran en el <strong>puente nasal</strong>.</div></li>
-                             <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Pediatría:</strong> la lesión más común (39%) también ocurre en el puente nasal.</div></li>
+                             <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Pediatría:</strong> La lesión más común (39%) también ocurre en el puente nasal.</div></li>
                         </ul>
                     </div>
                 </div>
             </div>
             
             <!-- 4. Factores de Riesgo Específicos -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div id="riesgos" class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
                     <span>4. Factores de riesgo en pacientes críticos</span>
                     <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -168,12 +187,12 @@
                     <div class="p-5 border-t text-gray-700">
                          <p>Además de los factores mecánicos, los pacientes críticos presentan riesgos adicionales:</p>
                         <ul class="list-disc list-inside space-y-2 mt-4 marker:text-vni-blue">
-                            <li><strong>Inestabilidad hemodinámica:</strong> Aumenta el edema y la isquemia (Presión arterial media &lt; 60-70 mmHg).</li>
-                            <li><strong>Fármacos vasoactivos:</strong> reducen la perfusión cutánea por vasoconstricción.</li>
-                            <li><strong>Nutrición deficiente:</strong> la falta de proteínas facilita la formación de edema.</li>
-                            <li><strong>Duración de la VMNI:</strong> aumenta el riesgo de úlceras en un <strong>10%</strong> debido a la inmovilidad.</li>
-                            <li><strong>Otros factores:</strong> edad avanzada, niveles bajos de hemoglobina y albúmina, déficit de vitamina D, uso de corticosteroides.</li>
-                            <li><strong>Riesgos pediátricos:</strong> bajo peso al nacer, edad gestacional temprana y estancia prolongada en UCI. Niños &lt; 2 años tienen mayor riesgo.</li>
+                            <li><strong>Inestabilidad Hemodinámica:</strong> Aumenta el edema y la isquemia (Presión arterial media &lt; 60-70 mmHg).</li>
+                            <li><strong>Fármacos Vasoactivos:</strong> Reducen la perfusión cutánea por vasoconstricción.</li>
+                            <li><strong>Nutrición Deficiente:</strong> La falta de proteínas facilita la formación de edema.</li>
+                            <li><strong>Duración de la VNI:</strong> Aumenta el riesgo de úlceras en un <strong>10%</strong> debido a la inmovilidad.</li>
+                            <li><strong>Otros Factores:</strong> Edad avanzada, niveles bajos de hemoglobina y albúmina, déficit de vitamina D, uso de corticosteroides.</li>
+                            <li><strong>Riesgos Pediátricos:</strong> Bajo peso al nacer, edad gestacional temprana y estancia prolongada en UCI. Niños &lt; 2 años tienen mayor riesgo.</li>
                         </ul>
                         <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-vni-blue">
                             <h4 class="font-bold text-vni-blue">Factores de riesgo con evidencia (estudio Nijs et al.)</h4>
@@ -188,7 +207,7 @@
             </div>
 
             <!-- 5. Medidas Preventivas -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div id="prevencion" class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
                     <span>5. Medidas preventivas (clave)</span>
                     <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -200,14 +219,14 @@
                         <div class="p-4 rounded-lg bg-gray-50 border">
                             <h3 class="text-lg font-bold text-vni-blue mb-2">5.1. Medidas generales</h3>
                             <p><strong>Evaluación del Riesgo:</strong> "Según la NPUAP, cualquier persona con un dispositivo clínico tiene riesgo potencial de UPP". Usar una escala validada como Braden.</p>
-                            <p class="mt-2"><strong>Inspección de la piel:</strong> "Inspeccionar la piel bajo los dispositivos clínicos como mínimo <strong>2 veces al día</strong>", y más a menudo si hay edema o fluidos.</p>
+                            <p class="mt-2"><strong>Inspección de la Piel:</strong> "Inspeccionar la piel bajo los dispositivos clínicos como mínimo <strong>2 veces al día</strong>", y más a menudo si hay edema o fluidos.</p>
                         </div>
 
                         <div class="p-4 rounded-lg bg-gray-50 border">
                             <h3 class="text-lg font-bold text-vni-blue mb-2">5.2. Lesiones por presión/cizalla</h3>
-                            <p><strong>Apósitos de Cura en Ambiente Húmedo (CAH):</strong> Aplicar apósitos de CAH <strong>antes de iniciar la VMNI</strong> para reducir presión y fricción.</p>
+                            <p><strong>Apósitos de Cura en Ambiente Húmedo (CAH):</strong> Aplicar apósitos de CAH <strong>antes de iniciar la VNI</strong> para reducir presión y fricción.</p>
                             <div class="bg-green-100 text-green-800 p-3 my-3 rounded-lg border-l-4 border-green-500">
-                                <strong>Resultado demostrado:</strong> los apósitos CAH redujeron la incidencia de lesiones del 96.7% al <strong>53.3%</strong>.
+                                <strong>Resultado Demostrado:</strong> Los apósitos CAH redujeron la incidencia de lesiones del 96.7% al <strong>53.3%</strong>.
                             </div>
                             <h4 class="font-semibold mt-4">Ajuste de la interfaz:</h4>
                             <ul class="list-disc list-inside ml-4">
@@ -222,8 +241,8 @@
                             <div class="space-y-4">
                                <div class="p-4 bg-blue-50 rounded-lg">
                                    <h4 class="font-bold">Selección de interfaz (adultos)</h4>
-                                   <p><strong>1ª Elección: máscara facial.</strong> Provoca menos lesiones y es mejor tolerada. Proteger siempre el puente nasal con apósitos (espuma o hidrocoloides).</p>
-                                   <p class="mt-2"><strong>2ª Elección (para rotación):</strong> <strong>Casco helmet®</strong> (ideal para edéntulos, con barba o lesiones previas) o <strong>Máscara Oronasal</strong> (para claustrofobia o casos sin complicaciones).</p>
+                                   <p><strong>1ª Elección: Máscara Facial.</strong> Provoca menos lesiones y es mejor tolerada. Proteger siempre el puente nasal con apósitos (espuma o hidrocoloides).</p>
+                                   <p class="mt-2"><strong>2ª Elección (para rotación):</strong> <strong>Casco Helmet®</strong> (ideal para edéntulos, con barba o lesiones previas) o <strong>Máscara Oronasal</strong> (para claustrofobia o casos sin complicaciones).</p>
                                </div>
                                <div class="p-4 bg-yellow-50 rounded-lg">
                                    <h4 class="font-bold">Manejo del ventilador y fugas</h4>
@@ -245,7 +264,7 @@
             </div>
             
             <!-- 6. Tratamiento de las Lesiones -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div id="tratamiento" class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
                     <span>6. Tratamiento de las lesiones</span>
                     <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -254,17 +273,17 @@
                     <div class="p-5 border-t space-y-4 text-gray-700">
                         <p>El tratamiento es un desafío, ya que debe realizarse mientras el dispositivo causante sigue en uso. El cuidado se basa en la <strong>preparación del lecho de la herida</strong>.</p>
                         <ol class="list-decimal list-inside space-y-2 marker:text-vni-blue">
-                            <li><strong>Clasificación:</strong> usar el sistema GNEAUPP (no es aplicable a mucosas).</li>
-                            <li><strong>Valoración:</strong> revalorar semanalmente la lesión y su evolución (tamaño, tejido, exudado, etc.).</li>
-                            <li><strong>Manejo del dolor:</strong> valorar y tratar el dolor específico causado por la herida.</li>
-                            <li><strong>Preparación del lecho de la herida:</strong>
+                            <li><strong>Clasificación:</strong> Usar el sistema GNEAUPP (no es aplicable a mucosas).</li>
+                            <li><strong>Valoración:</strong> Revalorar semanalmente la lesión y su evolución (tamaño, tejido, exudado, etc.).</li>
+                            <li><strong>Manejo del Dolor:</strong> Valorar y tratar el dolor específico causado por la herida.</li>
+                            <li><strong>Preparación del Lecho de la Herida:</strong>
                                 <ul class="list-disc list-inside ml-6 mt-2">
-                                    <li><strong>Limpieza:</strong> con suero fisiológico o agua potable en cada cambio de apósito.</li>
-                                    <li><strong>Desbridamiento:</strong> retirar tejido desvitalizado si la perfusión es adecuada y lo realiza personal capacitado.</li>
-                                    <li><strong>Infección:</strong> vigilar signos de infección local (mal olor, aumento de dolor, eritema, etc.).</li>
+                                    <li><strong>Limpieza:</strong> Con suero fisiológico o agua potable en cada cambio de apósito.</li>
+                                    <li><strong>Desbridamiento:</strong> Retirar tejido desvitalizado si la perfusión es adecuada y lo realiza personal capacitado.</li>
+                                    <li><strong>Infección:</strong> Vigilar signos de infección local (mal olor, aumento de dolor, eritema, etc.).</li>
                                 </ul>
                             </li>
-                             <li><strong>Uso de apósitos:</strong> no hay un tipo de apósito superior a otro. La elección debe basarse en un análisis integral, considerando:
+                             <li><strong>Uso de Apósitos:</strong> No hay un tipo de apósito superior a otro. La elección debe basarse en un análisis integral, considerando:
                                 <ul class="list-disc list-inside ml-6 mt-2 text-sm">
                                     <li>Capacidad para mantener la humedad adecuada.</li>
                                     <li>Necesidad de abordar la carga bacteriana.</li>
@@ -276,14 +295,14 @@
                              </li>
                         </ol>
                         <div class="bg-vni-red bg-opacity-10 border-l-4 border-vni-red p-4 mt-4 rounded-r-md">
-                            <p><strong>Fundamental:</strong> el tratamiento local debe ir siempre acompañado del mantenimiento de <strong>todas las medidas preventivas</strong>.</p>
+                            <p><strong>Fundamental:</strong> El tratamiento local debe ir siempre acompañado del mantenimiento de <strong>todas las medidas preventivas</strong>.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- 7. Conclusiones y Recomendaciones Clave -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div id="conclusiones" class="bg-white rounded-lg shadow-sm overflow-hidden">
                 <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
                     <span>7. Conclusiones y recomendaciones clave</span>
                     <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -312,7 +331,7 @@
                         </div>
                          <div class="bg-white p-4 rounded-lg shadow border-l-4 border-vni-red">
                             <h4 class="font-bold text-vni-red">6. Rotación de interfaz</h4>
-                            <p>A las <strong>24h</strong> de VNI, es imprescindible valorar una estrategia de rotación de la interfaz.</p>
+                            <p>A las <strong>24h</strong> de VNI, es crucial valorar una estrategia de rotación de la interfaz.</p>
                         </div>
                     </div>
                 </div>
@@ -321,7 +340,7 @@
         </div>
         
         <!-- Sección Interactiva de Repaso -->
-        <section class="mt-12">
+        <section id="repaso" class="mt-12">
             <div class="text-center mb-8">
                 <h2 class="text-3xl font-bold text-vni-blue mb-2">Ponte a prueba</h2>
                 <p class="text-gray-600">Haz clic en las tarjetas para revelar la respuesta y repasar los conceptos clave.</p>
@@ -401,16 +420,15 @@
         <p class="mt-1">&copy; 2025 Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Script para la funcionalidad del acordeón -->
+    <!-- Script para la funcionalidad del acordeón y cabecera -->
     <script>
+        // Funcionalidad del Acordeón
         const accordionButtons = document.querySelectorAll('.accordion-button');
-
         accordionButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const content = button.nextElementSibling;
                 const icon = button.querySelector('svg');
 
-                // Cierra otros acordeones abiertos
                 accordionButtons.forEach(otherButton => {
                     if (otherButton !== button) {
                         const otherContent = otherButton.nextElementSibling;
@@ -421,7 +439,6 @@
                     }
                 });
 
-                // Abre o cierra el acordeón actual
                 icon.classList.toggle('rotate-180');
                 if (content.style.maxHeight) {
                     content.style.maxHeight = null;
@@ -430,6 +447,24 @@
                 }
             });
         });
+
+        // Funcionalidad de la Cabecera Retráctil
+        let lastScrollTop = 0;
+        const header = document.getElementById('main-header');
+        const headerHeight = header.offsetHeight;
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > headerHeight) {
+                // Scroll hacia abajo
+                header.classList.add('-translate-y-full');
+            } else {
+                // Scroll hacia arriba
+                header.classList.remove('-translate-y-full');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
     </script>
 </body>
 </html>
+
