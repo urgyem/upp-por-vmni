@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva: Lesiones Cutáneas por VMNI</title>
+    
+    <!-- Tailwind CSS a través de CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración personalizada de Tailwind para los colores del proyecto -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'vni-red': '#be1520',
+                        'vni-blue': '#074d73',
+                        'vni-yellow': '#facc15', 
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos Adicionales para Animaciones y Componentes Interactivos -->
+    <style>
+        /* Estilo para la transición suave del acordeón */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+        }
+
+        /* Estilos para las tarjetas de volteo (flashcards) */
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px; /* Efecto 3D */
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+        .flip-card:hover .flip-card-inner, .flip-card.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Para Safari */
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 0.5rem;
+        }
+        .flip-card-front {
+            background-color: white;
+            color: #074d73;
+            border: 1px solid #e5e7eb;
+        }
+        .flip-card-back {
+            background-color: #074d73;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    <!-- Encabezado Fijo -->
+    <header class="bg-vni-blue text-white p-6 shadow-lg sticky top-0 z-20">
+        <div class="container mx-auto max-w-5xl flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
+            <img src="https://www.urgenciasyemergen.com/wp-content/uploads/2018/08/cropped-LOGO-ORIGINAL-R-192x192.jpg" alt="Logo Urgencias y Emergencias" class="h-24 w-24 border-2 border-white flex-shrink-0" style="border-radius: 10%;">
+            <div class="text-center md:text-left">
+                <h1 class="text-xl md:text-2xl font-bold leading-tight">Prevención y tratamiento de las lesiones cutáneas asociadas a la ventilación mecánica no invasiva</h1>
+                <p class="text-xs mt-2 opacity-90">Contenido basado en: Raurell-Torredà, M., Romero-Collado, A., Rodríguez-Palma, M., Farrés-Tarafa, M., Martí, J. D., Hurtado-Pardos, B., Peñarrubia-San Florencio, L., Saez-Paredes, P., & Esquinas, A. M. (2017). Prevención y tratamiento de las lesiones cutáneas asociadas a la ventilación mecánica no invasiva. Recomendaciones de expertos. Enfermeria Intensiva, 28(1), 31–41. https://doi.org/10.1016/j.enfi.2016.12.001</p>
+                <p class="text-sm mt-3 font-semibold">Autora: Elena Plaza Moreno - Urgencias y Emergencias® - www.urgenciasyemergen.com</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto max-w-5xl p-4 md:p-8">
+
+        <!-- 1. Resumen Ejecutivo -->
+        <div class="mb-8 bg-white rounded-lg shadow-md p-6 border-l-8 border-vni-red">
+            <h2 class="text-2xl font-bold text-vni-blue mb-3">1. Resumen ejecutivo</h2>
+            <p class="mb-4">La Ventilación Mecánica No Invasiva (VMNI) es una técnica esencial para la insuficiencia respiratoria, pero su uso frecuente provoca lesiones cutáneas (LESADIC), cuya incidencia puede dispararse al <strong>100% tras 48 horas</strong> de uso continuo. Estas lesiones afectan negativamente la calidad de vida y el éxito de la terapia.</p>
+            <p>Este documento resume el consenso de expertos sobre factores de riesgo, estrategias preventivas y tratamientos, destacando la importancia de una correcta selección de la interfaz, la protección de la piel y una monitorización constante.</p>
+        </div>
+
+        <!-- Contenido principal en formato de Acordeón -->
+        <div class="space-y-4">
+
+            <!-- 2. Introducción y Justificación -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
+                    <span>2. Introducción y justificación</span>
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-5 border-t text-gray-700">
+                        <p class="mb-4">El uso de la VMNI se ha triplicado en las últimas dos décadas. A pesar de sus beneficios, las LESADIC son un desafío persistente, siendo lesiones que replican la forma del dispositivo que las causa.</p>
+                        <div class="grid md:grid-cols-2 gap-4 mt-4 text-center">
+                            <div class="bg-blue-50 p-4 rounded-lg border border-vni-blue">
+                                <h4 class="font-bold text-vni-blue">En adultos</h4>
+                                <p>Las LESADIC son <strong>1/3 del total de úlceras por presión (UPP)</strong>, y un 10-17% están directamente ligadas a la VNI.</p>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded-lg border border-vni-red">
+                                <h4 class="font-bold text-vni-red">En pacientes pediátricos</h4>
+                                <p>La prevalencia de UPP por dispositivos respiratorios es del <strong>60.1%</strong>, con el 78.8% vinculadas a la CPAP.</p>
+                            </div>
+                        </div>
+                        <p class="mt-4">Un manejo adecuado de la interfaz es fundamental: una sujeción floja aumenta las fugas, mientras que una demasiado apretada incrementa el riesgo de lesiones. El objetivo de este documento es sintetizar la evidencia científica para ofrecer recomendaciones claras que permitan reducir la incidencia de estas lesiones y consensuar su tratamiento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Epidemiología y Fisiopatogenia -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
+                    <span>3. Epidemiología y fisiopatogenia</span>
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-5 border-t text-gray-700">
+                        <p class="mb-4">La lesión se produce por la presión del dispositivo, que causa <strong>isquemia tisular</strong> al comprometer el aporte de oxígeno y nutrientes y dificultar la eliminación de desechos metabólicos. Esta acumulación provoca vasodilatación local, que contribuye a la formación de <strong>edema</strong>, aumentando aún más la presión y la isquemia, y volviendo la piel más frágil. La sudoración bajo la interfaz macera la piel, aumentando el coeficiente de fricción.</p>
+                        <div class="my-4 p-4 bg-gray-50 rounded-lg border">
+                            <h4 class="font-bold text-vni-blue">El papel de la fricción</h4>
+                            <p>Es otra fuerza clave. Puede ser de dos tipos:</p>
+                            <ul class="list-disc list-inside ml-4 mt-2">
+                                <li><strong>Fricción estática:</strong> Cuando el dispositivo se coloca con demasiada presión, ejerce una fuerza contra la piel que, junto a la gravedad, produce un efecto de <strong>cizalla</strong>.</li>
+                                <li><strong>Fricción dinámica:</strong> El dispositivo se desliza de su posición (favorecido por sudor o humedad), encontrando la resistencia de la piel.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-vni-yellow bg-opacity-20 border-l-4 border-vni-yellow p-4 my-4 rounded-r-md">
+                            <h4 class="font-bold text-gray-900">¡Atención al tiempo!</h4>
+                            <p class="text-gray-800">Una lesión puede aparecer con tan solo un ciclo de <strong>2 horas de isquemia</strong>.</p>
+                        </div>
+                        <h4 class="font-bold text-lg mt-6 mb-2 text-vni-blue">Datos clave:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Incidencia:</strong> varía del 2% al 50%, pero se dispara al <strong>100% pasadas 48h de VNI</strong>.</div></li>
+                            <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Detección Tardía:</strong> el <strong>74%</strong> se detectan en estadios avanzados (III o IV), en contraste con el 54% de las UPP comunes.</div></li>
+                            <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Localización:</strong> 70% en cuello, barbilla, occipital o nariz. Las más graves (II o III) se concentran en el <strong>puente nasal</strong>.</div></li>
+                             <li class="flex items-start"><span class="text-vni-red font-bold mr-2 text-xl">›</span><div><strong>Pediatría:</strong> la lesión más común (39%) también ocurre en el puente nasal.</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 4. Factores de Riesgo Específicos -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
+                    <span>4. Factores de riesgo en pacientes críticos</span>
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-5 border-t text-gray-700">
+                         <p>Además de los factores mecánicos, los pacientes críticos presentan riesgos adicionales:</p>
+                        <ul class="list-disc list-inside space-y-2 mt-4 marker:text-vni-blue">
+                            <li><strong>Inestabilidad hemodinámica:</strong> Aumenta el edema y la isquemia (Presión arterial media &lt; 60-70 mmHg).</li>
+                            <li><strong>Fármacos vasoactivos:</strong> reducen la perfusión cutánea por vasoconstricción.</li>
+                            <li><strong>Nutrición deficiente:</strong> la falta de proteínas facilita la formación de edema.</li>
+                            <li><strong>Duración de la VMNI:</strong> aumenta el riesgo de úlceras en un <strong>10%</strong> debido a la inmovilidad.</li>
+                            <li><strong>Otros factores:</strong> edad avanzada, niveles bajos de hemoglobina y albúmina, déficit de vitamina D, uso de corticosteroides.</li>
+                            <li><strong>Riesgos pediátricos:</strong> bajo peso al nacer, edad gestacional temprana y estancia prolongada en UCI. Niños &lt; 2 años tienen mayor riesgo.</li>
+                        </ul>
+                        <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-vni-blue">
+                            <h4 class="font-bold text-vni-blue">Factores de riesgo con evidencia (estudio Nijs et al.)</h4>
+                            <p class="text-sm mb-2">Se identificaron los siguientes factores como predictores de UPP en pacientes críticos:</p>
+                            <ul class="list-disc list-inside ml-4">
+                                <li><strong>En las primeras 24h:</strong> Dopamina &lt;5 µg/kg/min (OR: 6,05), antecedentes de patología vascular (OR: 4,51), hemodiálisis (OR: 3,77).</li>
+                                <li><strong>En las primeras 48h:</strong> Hemodiálisis (OR: 9,43), ventilación mecánica (OR: 4,82), antecedentes de patología vascular (OR: 2,85).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Medidas Preventivas -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
+                    <span>5. Medidas preventivas (clave)</span>
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-5 border-t space-y-6 text-gray-700">
+                        
+                        <!-- Subsecciones de medidas preventivas -->
+                        <div class="p-4 rounded-lg bg-gray-50 border">
+                            <h3 class="text-lg font-bold text-vni-blue mb-2">5.1. Medidas generales</h3>
+                            <p><strong>Evaluación del Riesgo:</strong> "Según la NPUAP, cualquier persona con un dispositivo clínico tiene riesgo potencial de UPP". Usar una escala validada como Braden.</p>
+                            <p class="mt-2"><strong>Inspección de la piel:</strong> "Inspeccionar la piel bajo los dispositivos clínicos como mínimo <strong>2 veces al día</strong>", y más a menudo si hay edema o fluidos.</p>
+                        </div>
+
+                        <div class="p-4 rounded-lg bg-gray-50 border">
+                            <h3 class="text-lg font-bold text-vni-blue mb-2">5.2. Lesiones por presión/cizalla</h3>
+                            <p><strong>Apósitos de Cura en Ambiente Húmedo (CAH):</strong> Aplicar apósitos de CAH <strong>antes de iniciar la VMNI</strong> para reducir presión y fricción.</p>
+                            <div class="bg-green-100 text-green-800 p-3 my-3 rounded-lg border-l-4 border-green-500">
+                                <strong>Resultado demostrado:</strong> los apósitos CAH redujeron la incidencia de lesiones del 96.7% al <strong>53.3%</strong>.
+                            </div>
+                            <h4 class="font-semibold mt-4">Ajuste de la interfaz:</h4>
+                            <ul class="list-disc list-inside ml-4">
+                                <li>Dejar un espacio de <strong>dos dedos</strong> entre el arnés y la cara.</li>
+                                <li>Colgar el circuito en un soporte para evitar que la máscara se desplace.</li>
+                                <li>Incrementar el nivel de presión positiva en CPAP (en sistemas no mecánicos como Whisperflow) para mejorar el sellado sin aumentar la tensión del arnés.</li>
+                            </ul>
+                        </div>
+                        
+                         <div class="p-4 rounded-lg bg-gray-50 border">
+                            <h3 class="text-lg font-bold text-vni-blue mb-2">5.4. Interfaz y ventilador</h3>
+                            <div class="space-y-4">
+                               <div class="p-4 bg-blue-50 rounded-lg">
+                                   <h4 class="font-bold">Selección de interfaz (adultos)</h4>
+                                   <p><strong>1ª Elección: máscara facial.</strong> Provoca menos lesiones y es mejor tolerada. Proteger siempre el puente nasal con apósitos (espuma o hidrocoloides).</p>
+                                   <p class="mt-2"><strong>2ª Elección (para rotación):</strong> <strong>Casco helmet®</strong> (ideal para edéntulos, con barba o lesiones previas) o <strong>Máscara Oronasal</strong> (para claustrofobia o casos sin complicaciones).</p>
+                               </div>
+                               <div class="p-4 bg-yellow-50 rounded-lg">
+                                   <h4 class="font-bold">Manejo del ventilador y fugas</h4>
+                                   <p>En pacientes poco colaboradores (agitados), usar ventiladores específicos de VNI que gestionan mejor las fugas. Es crucial formar al equipo en el concepto <strong>"tolerancia a la fuga"</strong> para evitar la tendencia a apretar en exceso la máscara, lo que causa lesiones e intolerancia.</p>
+                               </div>
+                               <div>
+                                   <h4 class="font-bold">Tiempos de exposición y valoración</h4>
+                                    <ul class="space-y-2 mt-2">
+                                        <li class="flex items-center"><span class="text-vni-red mr-2">⏱️</span><strong>Primera valoración:</strong> Entre las <strong>2-4 horas</strong> del inicio.</li>
+                                        <li class="flex items-center"><span class="text-vni-red mr-2">⏱️</span><strong>Reevaluación continua:</strong> Cada <strong>4 horas</strong> (recomendable) a <strong>11 horas</strong> (máximo).</li>
+                                        <li class="flex items-center"><span class="text-vni-red mr-2">⏱️</span><strong>Descansos:</strong> Retirar interfaz mínimo 10 min (ideal 30 min) para reoxigenar la piel.</li>
+                                        <li class="flex items-center"><span class="text-vni-yellow mr-2 text-2xl">⚠️</span><strong>A las 24h:</strong> Valorar la <strong>rotación de la interfaz</strong>, ya que los apósitos pierden eficacia protectora.</li>
+                                    </ul>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 6. Tratamiento de las Lesiones -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
+                    <span>6. Tratamiento de las lesiones</span>
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="p-5 border-t space-y-4 text-gray-700">
+                        <p>El tratamiento es un desafío, ya que debe realizarse mientras el dispositivo causante sigue en uso. El cuidado se basa en la <strong>preparación del lecho de la herida</strong>.</p>
+                        <ol class="list-decimal list-inside space-y-2 marker:text-vni-blue">
+                            <li><strong>Clasificación:</strong> usar el sistema GNEAUPP (no es aplicable a mucosas).</li>
+                            <li><strong>Valoración:</strong> revalorar semanalmente la lesión y su evolución (tamaño, tejido, exudado, etc.).</li>
+                            <li><strong>Manejo del dolor:</strong> valorar y tratar el dolor específico causado por la herida.</li>
+                            <li><strong>Preparación del lecho de la herida:</strong>
+                                <ul class="list-disc list-inside ml-6 mt-2">
+                                    <li><strong>Limpieza:</strong> con suero fisiológico o agua potable en cada cambio de apósito.</li>
+                                    <li><strong>Desbridamiento:</strong> retirar tejido desvitalizado si la perfusión es adecuada y lo realiza personal capacitado.</li>
+                                    <li><strong>Infección:</strong> vigilar signos de infección local (mal olor, aumento de dolor, eritema, etc.).</li>
+                                </ul>
+                            </li>
+                             <li><strong>Uso de apósitos:</strong> no hay un tipo de apósito superior a otro. La elección debe basarse en un análisis integral, considerando:
+                                <ul class="list-disc list-inside ml-6 mt-2 text-sm">
+                                    <li>Capacidad para mantener la humedad adecuada.</li>
+                                    <li>Necesidad de abordar la carga bacteriana.</li>
+                                    <li>Naturaleza y volumen del exudado.</li>
+                                    <li>Estado del tejido ulceral y de la piel perilesional.</li>
+                                    <li>Tamaño, profundidad, ubicación y presencia de túneles.</li>
+                                    <li>Compatibilidad con el dispositivo clínico.</li>
+                                </ul>
+                             </li>
+                        </ol>
+                        <div class="bg-vni-red bg-opacity-10 border-l-4 border-vni-red p-4 mt-4 rounded-r-md">
+                            <p><strong>Fundamental:</strong> el tratamiento local debe ir siempre acompañado del mantenimiento de <strong>todas las medidas preventivas</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Conclusiones y Recomendaciones Clave -->
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <button class="accordion-button w-full flex justify-between items-center text-left p-5 font-semibold text-xl text-vni-blue hover:bg-gray-50 focus:outline-none transition-colors duration-300">
+                    <span>7. Conclusiones y recomendaciones clave</span>
+                    <svg class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div class="accordion-content">
+                     <div class="p-5 border-t grid md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-vni-blue">
+                            <h4 class="font-bold text-vni-blue">1. Máscara de elección</h4>
+                            <p>La <strong>máscara facial</strong> es la interfaz preferida. La oronasal se reserva para casos de claustrofobia.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-vni-blue">
+                            <h4 class="font-bold text-vni-blue">2. Casco Helmet®</h4>
+                            <p>Considerar su uso en pacientes con LESADIC existentes para eliminar la presión, o en aquellos que mueven la barbilla.</p>
+                        </div>
+                         <div class="bg-white p-4 rounded-lg shadow border-l-4 border-vni-blue">
+                            <h4 class="font-bold text-vni-blue">3. Protección del puente nasal</h4>
+                            <p><strong>Siempre</strong> proteger la piel del puente nasal con apósitos de espuma o hidrocoloides.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-vni-blue">
+                            <h4 class="font-bold text-vni-blue">4. Evaluación de riesgo</h4>
+                            <p>Usar la escala <strong>Braden</strong> para identificar el riesgo de UPP al ingreso y de forma regular.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow border-l-4 border-vni-red">
+                            <h4 class="font-bold text-vni-red">5. Monitorización de piel</h4>
+                            <p>Evaluar a las <strong>2-4h</strong> del inicio, y luego cada <strong>4h</strong> (recomendable) a <strong>11h</strong> (máximo).</p>
+                        </div>
+                         <div class="bg-white p-4 rounded-lg shadow border-l-4 border-vni-red">
+                            <h4 class="font-bold text-vni-red">6. Rotación de interfaz</h4>
+                            <p>A las <strong>24h</strong> de VNI, es imprescindible valorar una estrategia de rotación de la interfaz.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Sección Interactiva de Repaso -->
+        <section class="mt-12">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-vni-blue mb-2">Ponte a prueba</h2>
+                <p class="text-gray-600">Haz clic en las tarjetas para revelar la respuesta y repasar los conceptos clave.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tarjeta 1 -->
+                <div class="flip-card h-48 cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-inner rounded-lg">
+                        <div class="flip-card-front"><h3 class="text-xl font-semibold">¿Cuál es la interfaz de primera elección y por qué?</h3></div>
+                        <div class="flip-card-back"><p>La <strong>máscara facial</strong>, porque provoca menos lesiones y es mejor tolerada por los pacientes.</p></div>
+                    </div>
+                </div>
+                <!-- Tarjeta 2 -->
+                 <div class="flip-card h-48 cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-inner rounded-lg">
+                        <div class="flip-card-front"><h3 class="text-xl font-semibold">¿Con qué frecuencia mínima se debe inspeccionar la piel bajo el dispositivo?</h3></div>
+                        <div class="flip-card-back"><p>Como mínimo <strong>2 veces al día</strong>, y con más frecuencia si hay edema o contacto con fluidos.</p></div>
+                    </div>
+                </div>
+                 <!-- Tarjeta 3 -->
+                 <div class="flip-card h-48 cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-inner rounded-lg">
+                        <div class="flip-card-front"><h3 class="text-xl font-semibold">¿Cuándo se debe valorar la rotación de la interfaz?</h3></div>
+                        <div class="flip-card-back"><p>A las <strong>24 horas</strong> de VNI, porque los apósitos protectores pierden eficacia.</p></div>
+                    </div>
+                </div>
+                 <!-- Tarjeta 4 -->
+                 <div class="flip-card h-48 cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-inner rounded-lg">
+                        <div class="flip-card-front"><h3 class="text-xl font-semibold">¿Qué medida reduce drásticamente la incidencia de lesiones (del 96.7% al 53.3%)?</h3></div>
+                        <div class="flip-card-back"><p>La aplicación previa de <strong>apósitos de cura en ambiente húmedo (CAH)</strong>.</p></div>
+                    </div>
+                </div>
+                <!-- Tarjeta 5 -->
+                 <div class="flip-card h-48 cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-inner rounded-lg">
+                        <div class="flip-card-front"><h3 class="text-xl font-semibold">¿Cuál es la pauta de tiempos para valorar la piel tras el inicio de la VNI?</h3></div>
+                        <div class="flip-card-back"><p><strong>1ª valoración:</strong> 2-4h. <br><strong>Reevaluaciones:</strong> Cada 4h (ideal) a 11h (máximo).</p></div>
+                    </div>
+                </div>
+                 <!-- Tarjeta 6 -->
+                 <div class="flip-card h-48 cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-inner rounded-lg">
+                        <div class="flip-card-front"><h3 class="text-xl font-semibold">¿Dónde se producen las lesiones más graves con mayor frecuencia?</h3></div>
+                        <div class="flip-card-back"><p>En el <strong>puente nasal</strong> (categorías II o III), con una incidencia del 5% al 20%.</p></div>
+                    </div>
+                </div>
+                <!-- Tarjeta 7 (Nueva) -->
+                <div class="flip-card h-48 cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-inner rounded-lg">
+                        <div class="flip-card-front"><h3 class="text-xl font-semibold">¿Qué es la "tolerancia a la fuga" y por qué es importante?</h3></div>
+                        <div class="flip-card-back"><p>Es la capacidad del ventilador de VNI para compensar fugas. Es clave formar al personal para evitar que aprieten la máscara en exceso y causen lesiones.</p></div>
+                    </div>
+                </div>
+                <!-- Tarjeta 9 (Nueva) -->
+                <div class="flip-card h-48 cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-inner rounded-lg">
+                        <div class="flip-card-front"><h3 class="text-xl font-semibold">Además de la interfaz, ¿qué otro elemento requiere una inspección cuidadosa?</h3></div>
+                        <div class="flip-card-back"><p>El <strong>arnés de sujeción</strong>. Se debe inspeccionar la piel de debajo, especialmente en la zona occipital, y protegerla si hay edema.</p></div>
+                    </div>
+                </div>
+                <!-- Tarjeta 10 (Nueva) -->
+                <div class="flip-card h-48 cursor-pointer" onclick="this.classList.toggle('is-flipped')">
+                    <div class="flip-card-inner rounded-lg">
+                        <div class="flip-card-front"><h3 class="text-xl font-semibold">¿Qué espacio de seguridad se debe dejar entre el arnés y la cara?</h3></div>
+                        <div class="flip-card-back"><p>Un espacio suficiente para que pasen <strong>dos dedos</strong>, para evitar una presión excesiva sobre la piel.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center p-6 mt-12 bg-gray-800 text-gray-400 text-sm">
+        <p>Autora: Elena Plaza Moreno.</p>
+        <p class="mt-1">&copy; 2025 Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Script para la funcionalidad del acordeón -->
+    <script>
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('svg');
+
+                // Cierra otros acordeones abiertos
+                accordionButtons.forEach(otherButton => {
+                    if (otherButton !== button) {
+                        const otherContent = otherButton.nextElementSibling;
+                        if (otherContent.style.maxHeight) {
+                            otherContent.style.maxHeight = null;
+                            otherButton.querySelector('svg').classList.remove('rotate-180');
+                        }
+                    }
+                });
+
+                // Abre o cierra el acordeón actual
+                icon.classList.toggle('rotate-180');
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
